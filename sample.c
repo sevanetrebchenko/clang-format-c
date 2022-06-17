@@ -3,20 +3,17 @@
 
 // // Header comment.
 
-
 /* C-style comment. */
 
 /**
  * Multiline C-style comment.
  **/
-#include "directory1/test.h"
-#include "header1.h"
-#include <string.h>
-
-#include "header2.h"
+// #include "directory1/test.h"
+// #include "header1.h"
+// #include "header2.h"
 #include <malloc.h>
 #include <math.h>
-
+#include <string.h>
 
 // Nested preprocessor directives.
 #ifndef DEFINE
@@ -31,8 +28,11 @@
 #define SHORT_NAME       42
 #define LONGER_NAME      0x007f
 #define EVEN_LONGER_NAME (2)
+// Comment.
 #define foo(x)           (x * x)
 #define bar(y, z)        (y + z)
+
+#define foobar(x, y, z) (x * y * z)
 
 #define A          \
     int aaaa;      \
@@ -40,13 +40,22 @@
     int ccccccccc; \
     int d;
 
-
-// This is a longer comment
-struct sample_struct_1 { };
+// This is a longer comment.
+struct sample_struct_1 {
+};
 
 typedef struct sample_struct_2 {
-    int i;
-    float f;
+    int i : 1;
+    int f : 2;
+
+    // Comment.
+    int f2       : 3;
+    int dddddddd : 4;
+    // Comment.
+    int i2       : 6;
+
+    int i3 : 7;
+    int f3 : 8;
 } sample_struct_2;
 
 typedef enum sample_enum {
@@ -91,10 +100,15 @@ void function_types() {
 
     // Arrays.
     int int_array[5];
-    float float_array[3] = {1, 2, 3};
-    sample_struct_2 pod_array[2] = {
-        {.i = 0, .f = 0.0f},
-        {.i = 10, .f = 10.0f}};
+    float float_array[3] = { 1, 2, 3 };
+    sample_struct_2 pod_array[3] = {
+        { .i = 0, .f = 0.0f },
+        { .i = 10, .f = 10.0f },
+        { .i = 25, .f = 25.0f }
+    };
+}
+
+void empty_function() {
 }
 
 void function_casting() {
@@ -127,7 +141,8 @@ void function_loops() {
 
     do {
         printf("do while");
-    } while (1);
+    }
+    while (1);
 
     for (int i = 0; i < 10; ++i) {
         printf("for loop");
@@ -167,7 +182,11 @@ void function_parameters_1(int first, float second, double third, sample_enum fo
 
 void function_parameters_2(int first, float second, double third) {
     function_parameters_1(first, second, third, FIRST, NULL);
+
     int integer = 0;
 
     int a_long_variable_name = 1 ? 2 : 3;
+}
+
+void function_array_of_structures() {
 }

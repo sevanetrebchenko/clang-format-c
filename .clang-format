@@ -1,135 +1,166 @@
 
-# clang-format v10.0.0
-# Provided in the order specified by https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+# Using clang-format v14.0.0
+# https://releases.llvm.org/14.0.0/tools/clang/docs/ClangFormatStyleOptions.html
 
-# BasedOnStyle: LLVM
+BasedOnStyle: LLVM
 AccessModifierOffset: 0
 AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: false
-AlignConsecutiveDeclarations: false
-AlignConsecutiveMacros: true 
+AlignArrayOfStructures: None
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: AcrossComments
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: AcrossComments
 AlignEscapedNewlines: Left
-AlignOperands: true
+AlignOperands: Align
 AlignTrailingComments: true
-AllowAllArgumentsOnNextLine: true
+AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: None
 AllowShortLoopsOnASingleLine: false
-# AlwaysBreakAfterDefinitionReturnType: None - deprecated
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+AttributeMacros: [ ]
 BinPackArguments: false
 BinPackParameters: false
+BitFieldColonSpacing: Both
 BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: false
+  AfterClass: false
   AfterControlStatement: Never
   AfterEnum: false
   AfterFunction: false
+  AfterNamespace: false
+  AfterObjCDeclaration: false
   AfterStruct: false
   AfterUnion: false
   AfterExternBlock: false
   BeforeCatch: true
   BeforeElse: true
+  BeforeLambdaBody: false
+  BeforeWhile: true
   IndentBraces: false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
+  SplitEmptyNamespace: true
 BreakBeforeBinaryOperators: None
+BreakBeforeConceptDeclarations: true # TODO:
 BreakBeforeTernaryOperators: false
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: AfterComma
 BreakStringLiterals: false
-ColumnLimit: 0 # No limit.
+ColumnLimit: 0
 CommentPragmas: ''
+CompactNamespaces: false
+ConstructorInitializerIndentWidth: 8
 ContinuationIndentWidth: 4
+Cpp11BracedListStyle: false
 DeriveLineEnding: false # Use value in UseCRLF.
-DerivePointerAlignment: false # Use value in PointerAlignment
+DerivePointerAlignment: false # Use value in PointerAlignment.
 DisableFormat: false
-# ExperimentalAutoDetectBinPacking: false - experimental
-ForEachMacros: [ ]
-IncludeBlocks: Merge
+EmptyLineAfterAccessModifier: Leave
+EmptyLineBeforeAccessModifier: Always
+FixNamespaceComments: true
+ForEachMacros: [ 'FOREACH' ]
+IfMacros: [ 'IF' ]
+IncludeBlocks: Preserve
 IncludeCategories: [ ]
-IncludeIsMainRegex: '(_test)?$' # Header file a.h is seen as the main include file in both a.c and a_test.c.
+IncludeIsMainRegex: '(_test)?$' # a.h is the main include for both 'a.c' and 'a_test.c'.
 IncludeIsMainSourceRegex: ''
+IndentAccessModifiers: false # true for .cpp files.
+IndentCaseBlocks: false
 IndentCaseLabels: true
-IndentGotoLabels: true
+IndentExternBlock: Indent
+IndentGotoLabels: false
 IndentPPDirectives: BeforeHash
+IndentRequires: false # TODO:
 IndentWidth: 4
 IndentWrappedFunctionNames: false
+InsertTrailingCommas: None
 KeepEmptyLinesAtTheStartOfBlocks: false
+LambdaBodyIndentation: Signature
 Language: Cpp
 MacroBlockBegin: ''
 MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 3
-PointerAlignment: Left
-RawStringFormats: [ ]
-ReflowComments: false
-SortIncludes: false
-SortUsingDeclarations: false
-SpaceAfterCStyleCast: true
-SpaceAfterLogicalNot: false
-SpaceBeforeAssignmentOperators: true
-SpaceBeforeParens: ControlStatements
-SpaceBeforeSquareBrackets: false
-SpaceInEmptyBlock: true
-SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 1
-SpacesInCStyleCastParentheses: false
-SpacesInConditionalStatement: false
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
-Standard: Latest
-StatementMacros: [ ]
-TabWidth: 4
-TypenameMacros: [ ]
-UseCRLF: false
-UseTab: Never
+NamespaceIndentation: All
+NamespaceMacros: [ ]
+PPIndentWidth: -1 # Use value in IndentWidth.
+PackConstructorInitializers: Never
 
-
-# Options not applicable for C programs.
-# AllowAllConstructorInitializersOnNextLine: true
-# AllowShortLambdasOnASingleLine: None
-# AlwaysBreakTemplateDeclarations: Yes
-# BraceWrapping:
-  # AfterClass: false
-  # AfterNamespace: false
-  # AfterObjCDeclaration: false
-  # SplitEmptyNamespace: true
-# BreakAfterJavaFieldAnnotations: false
-# BreakConstructorInitializers: BeforeColon
-# BreakInheritanceList: BeforeColon
-# CompactNamespaces: false
-# ConstructorInitializerAllOnOneLineOrOnePerLine: false - deprecated
-# ConstructorInitializerIndentWidth: 0
-# Cpp11BracedListStyle: false
-# FixNamespaceComments: true
-# JavaImportGroups: [ 'com.example', 'com', 'org' ]
-# JavaScriptQuotes: Leave
-# JavaScriptWrapImports: true
-# NamespaceIndentation: All
-# NamespaceMacros: [ ]
-# ObjCBinPackProtocolList: Auto
-# ObjCBlockIndentWidth: 2
-# ObjCSpaceAfterProperty: false
-# ObjCSpaceBeforeProtocolList: true
-
-# Note: penalties are not used due to no restriction on line length.
+# Penalties are not used due to no restriction on line limit.
+# Possible TODO for later.
 # PenaltyBreakAssignment: 2
 # PenaltyBreakBeforeFirstCallParameter: 19
 # PenaltyBreakComment: 300
 # PenaltyBreakFirstLessLess: 120
-# PenaltyBreakOpenParenthesis: 10
+# PenaltyBreakOpenParenthesis: 0
 # PenaltyBreakString: 1000
 # PenaltyBreakTemplateDeclaration: 10
 # PenaltyExcessCharacter: 1000000
-# PenaltyIndentedWhitespace: 10
+# PenaltyIndentedWhitespace: 0
 # PenaltyReturnTypeOnItsOwnLine: 60
 
-# SpaceAfterTemplateKeyword: true
-# SpaceBeforeCpp11BracedList: true
-# SpaceBeforeCtorInitializerColon: true
-# SpaceBeforeInheritanceColon: true
-# SpaceBeforeRangeBasedForLoopColon: true
-# SpacesInAngles: false
-# SpacesInContainerLiterals: false
+PointerAlignment: Left
+QualifierAlignment: Leave
+# QualifierOrder: 
+#   - 'static'
+#   - 'constexpr'
+#   - 'inline'
+#   - 'type'
+#   - 'const'
+#   - 'volatile'
+#   - 'restrict'
+RawStringFormats: [ ]
+ReferenceAlignment: Pointer # Use value in PointerAlignment.
+ReflowComments: false
+RemoveBracesLLVM: false
+SeparateDefinitionBlocks: Always
+ShortNamespaceLines: 0
+SortIncludes: CaseInsensitive
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceAroundPointerQualifiers: Default # Use value in PointerAlignment.
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterForeachMacros: false
+  AfterFunctionDefinitionName: false
+  AfterFunctionDeclarationName: false
+  AfterIfMacros: false
+  AfterOverloadedOperator: false
+  BeforeNonEmptyParentheses: false
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: Never
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: true
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+Standard: Latest
+StatementAttributeLikeMacros: [ ]
+StatementMacros: [ ]
+TabWidth: 4
+UseCRLF: false
+UseTab: Never
+WhitespaceSensitiveMacros: [ ]
